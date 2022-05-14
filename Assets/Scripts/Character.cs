@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
+    [SerializeField] TextMesh powerText;
     public int Power;
     Vector3 _target, _oldPos;
     bool _shouldMove;
@@ -12,6 +13,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         _shouldMove = false;
+        powerText = GetComponentInChildren<TextMesh>();
     }
 
     public void SetMoveTarget(Vector3 position, float moveTime)
@@ -34,5 +36,11 @@ public class Character : MonoBehaviour
                 transform.position = _target;
             }
         }
+    }
+    
+    public void UpdatePower(int newPower)
+    {
+        Power = newPower;
+        powerText.text = Power.ToString();
     }
 }

@@ -61,7 +61,7 @@ public class MergeController : MonoBehaviour
 
         mergeEffect.transform.position = _currentCharacter.transform.position;
         mergeEffect.Play(); //play merge effect on character's position
-        _currentCharacter.Power = _targetPower;
+        _currentCharacter.UpdatePower(_targetPower);
         foreach (Character ch in merged)
         {
             ch.gameObject.SetActive(false);//disable merged characters for later use
